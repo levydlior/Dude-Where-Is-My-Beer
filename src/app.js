@@ -1,6 +1,6 @@
 
 const details = document.querySelector('#brewry-details')
-const randomBtn = document.getElementsByName('random-brewery')
+const randomBtn = document.querySelector('#random-brewery-button')
 
 const renderBreweryDetails = brewery => {
 
