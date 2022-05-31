@@ -72,5 +72,6 @@ function fetchRandomBrewery() {
   randomBtn.addEventListener('click', () => {
 
     fetchRandomBrewery()
+    details.replaceChildren()
 
   })
