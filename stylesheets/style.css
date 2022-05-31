@@ -1,5 +1,48 @@
 * {
     box-sizing: border-box;
-    margin: 0;
+    
+}
+
+header {
+    background-color: rgba(197, 194, 194, 0.735);
+    box-shadow: 1px 2px #535353;;
+}
+
+body {
     padding: 0;
+    margin: 0;
+    background-color: orange
+}
+
+#brewery-names-nav {
+    display: flex;
+    justify-content: center;
+    border: 1px;
+    border-style: solid;
+    padding: 0.5rem;
+    width: 46rem;
+}
+
+ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    width: 30rem;
+}
+
+li {
+    padding: 5px;
+    margin: 5px;
+    border-style: solid;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+#nav-location {
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem;
 }
