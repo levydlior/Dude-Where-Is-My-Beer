@@ -23,10 +23,6 @@ const renderBreweryDetails = brewery => {
     details.append(cardDetails)
 }
 
-randomBtn.addEventListener('click', () => {
-
-})
-
 let zipCode = "";
 const zipForm = document.querySelector("#form-by-zip");
 const dropDown = document.querySelector("#brew-drop-down");
@@ -59,3 +55,22 @@ zipForm.addEventListener("submit", (e) => {
   fetchZipBrew();
   zipForm.reset();
 });
+
+
+function fetchRandomBrewery() {
+    fetch(
+      'https://api.openbrewerydb.org/breweries/random'
+    )
+      .then((response) => response.json())
+      .then((brewries) => {
+        brewries.forEach((brewery) => {
+          renderBreweryDetails(brewery);
+        })
+      })
+  }
+
+  randomBtn.addEventListener('click', () => {
+
+    fetchRandomBrewery()
+
+  })
