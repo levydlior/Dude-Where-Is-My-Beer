@@ -28,6 +28,8 @@ ul {
     justify-content: space-evenly;
     list-style: none;
     width: 30rem;
+    padding: 0.5rem;
+    margin: 0.5rem;
 }
 
 li {
