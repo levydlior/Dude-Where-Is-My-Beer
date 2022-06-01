@@ -63,11 +63,13 @@ function renderBreweryDetails(brewery) {
   breweryName.textContent = brewery.name;
   breweryType.textContent = "Brewery Type: " + brewery.brewery_type;
 
-  if (brewery.street) {
-    breweryStreet.textContet = "Street: " + brewery.street;
-  } else {
-    breweryStreet.textContet = "Street: Unknown";
-  }
+if (!brewery.street) {
+    breweryStreet.textContent = "Street: Unknown";
+    } else {
+    breweryStreet.textContent = "Street:" + brewery.street;
+}
+
+
   breweryCity.textContent = "City: " + brewery.city;
   breweryState.textContent = "State: " + brewery.state;
   breweryZipCode.textContent = "Zip: " + brewery.postal_code;
