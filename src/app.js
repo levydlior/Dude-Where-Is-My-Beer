@@ -41,12 +41,16 @@ zipForm.addEventListener("submit", (e) => {
 function fetchRandomBrewery() {
   fetch("https://api.openbrewerydb.org/breweries/random", { cache: "no-store" })
     .then((response) => response.json())
-    .then((brewery) => renderBreweryDetails(brewery[0]));
+    .then((brewery) => {
+      details.replaceChildren();
+      renderBreweryDetails(brewery[0])
+    });
 }
 
 randomBtn.addEventListener("click", () => {
+  console.log('not refreshed')
   fetchRandomBrewery();
-  details.replaceChildren();
+  
 });
 
 function renderBreweryDetails(brewery) {
