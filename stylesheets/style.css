@@ -5,7 +5,7 @@
 
 header {
     background-color: rgba(197, 194, 194, 0.735);
-    box-shadow: 1px 2px #535353;;
+    box-shadow: 1px 2px #535353;
 }
 
 body {
@@ -53,6 +53,10 @@ header {
     display: flex;
     flex-wrap: wrap;
     flex-flow: column;
+    border-style: groove;
+    box-shadow: 3px 5px #423f3f;
+    padding: 1rem;
+    
 }
 
 a {
@@ -73,4 +77,14 @@ main {
     margin: 1rem;
     padding: 1rem;
     justify-content: center;
+}
+
+#random-brewery-button{
+    justify-content: center;
+    display: flex;
+}
+
+#random-brewery-button {
+   display: flex;
+   justify-content: center; 
 }
