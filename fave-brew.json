@@ -1,19 +1,34 @@
 {
   "favorites": [
     {
-      "name": "Peoria Artisan Brewery",
-      "zip": "85382",
+      "name": "Ethereal Brewing",
+      "zip": "40504-1129",
       "id": 1
     },
     {
-      "name": "SanTan Brewing Co",
-      "zip": "85225-7862",
+      "name": "Ethereal Brewing",
+      "zip": "40504-1129",
       "id": 2
     },
     {
-      "name": "Great Divide Brewing Co",
-      "zip": "80205-2512",
+      "name": "The Referend Bier Blendery",
+      "zip": "08534-5007",
       "id": 3
+    },
+    {
+      "name": "Black Shirt Brewing Co",
+      "zip": "80205-2436",
+      "id": 4
+    },
+    {
+      "name": "The Sandlot Brewery At Coors Field",
+      "zip": "80205-2010",
+      "id": 5
+    },
+    {
+      "name": "Dock Street Brewing Co",
+      "zip": "19146",
+      "id": 6
     }
   ]
 }

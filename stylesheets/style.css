@@ -113,4 +113,9 @@ input[type="submit"] {
   display: flex;
   justify-content: center;
   margin: 0.5rem;
+
+}
+
+#fave-text-label {
+    margin: 0.5rem;
 }

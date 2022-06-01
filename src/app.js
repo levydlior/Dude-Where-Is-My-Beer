@@ -4,8 +4,6 @@ const zipForm = document.querySelector("#form-by-zip");
 const dropDownZip = document.querySelector("#brew-drop-down");
 const faveDropDown = document.querySelector("#favorites-drop-menu");
 
-fetchFavorites();
-
 let zipCode = "";
 
 function fetchZipBrew() {
@@ -61,16 +59,14 @@ function renderBreweryDetails(brewery) {
   const breweryState = document.createElement("p");
   const breweryZipCode = document.createElement("p");
   const breweryPhone = document.createElement("p");
-  const breweryWebsite = document.createElement("a");
   const likeButton = document.createElement("button");
 
-
   if (!brewery.website_url) {
-    breweryName.innerHTML = `<h2> ${brewery.name}</h2>`
+    breweryName.innerHTML = `<h2> ${brewery.name}</h2>`;
   } else {
-  breweryName.href = brewery.website_url
-  breweryName.innerHTML = `<h2> ${brewery.name}</h2>`
-  breweryName.target = "_blank"
+    breweryName.href = brewery.website_url;
+    breweryName.innerHTML = `<h2> ${brewery.name}</h2>`;
+    breweryName.target = "_blank";
   }
 
   breweryType.textContent = "Brewery Type: " + brewery.brewery_type;
@@ -79,7 +75,8 @@ function renderBreweryDetails(brewery) {
     breweryStreet.textContent = "Street: Unknown";
   } else {
     breweryStreet.textContent = "Street: " + brewery.street;
-}
+
+  }
 
   breweryCity.textContent = "City: " + brewery.city;
   breweryState.textContent = "State: " + brewery.state;
@@ -91,7 +88,6 @@ function renderBreweryDetails(brewery) {
 
   likeBtnEventListener(likeButton, brewery, breweryName);
 
-
   cardDetails.append(
     breweryName,
     breweryType,
@@ -101,25 +97,9 @@ function renderBreweryDetails(brewery) {
     breweryZipCode,
     breweryPhone,
     likeButton
- 
-
   );
   details.append(cardDetails);
 }
-
-dropDownZip.addEventListener("change", () => {
-  const dropValueSplit = dropDownZip.value.split(" ");
-  const dropValueWithDashes = dropValueSplit.join("_");
-
-  fetch(
-    `https://api.openbrewerydb.org/breweries?by_name=${dropValueWithDashes}&by_postal=${zipCode}&per_page=3`
-  )
-    .then((response) => response.json())
-    .then((brewery) => {
-      details.replaceChildren();
-      renderBreweryDetails(brewery[0]);
-    });
-});
 
 function fetchFavorites() {
   fetch("http://localhost:3000/favorites")
@@ -133,6 +113,7 @@ function fetchFavorites() {
       });
     });
 }
+fetchFavorites();
 
 faveDropDown.addEventListener("change", () => {
   fetchSpesificBewByName();
@@ -146,7 +127,7 @@ function likeBtnEventListener(likeButton, brewery, breweryName) {
         "Content-type": "application/json",
       },
       body: JSON.stringify({
-        name: breweryName.textContent,
+        name: brewery.name,
         zip: brewery.postal_code,
       }),
     })
@@ -167,4 +148,18 @@ function fetchSpesificBewByName() {
       renderBreweryDetails(brewery[0]);
     });
 }
+
+dropDownZip.addEventListener("change", () => {
+  const dropValueSplit = dropDownZip.value.split(" ");
+  const dropValueWithDashes = dropValueSplit.join("_");
+
+  fetch(
+    `https://api.openbrewerydb.org/breweries?by_name=${dropValueWithDashes}&by_postal=${zipCode}&per_page=3`
+  )
+    .then((response) => response.json())
+    .then((brewery) => {
+      details.replaceChildren();
+      renderBreweryDetails(brewery[0]);
+    });
+});
 
