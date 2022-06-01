@@ -12,7 +12,7 @@ function fetchZipBrew() {
     .then((response) => response.json())
     .then((brewries) => {
       const emptyOption = document.createElement("option");
-        dropDown.append(emptyOption)
+      dropDown.append(emptyOption);
       brewries.forEach((brewery) => {
         renderBrewToDropDown(brewery);
       });
@@ -21,7 +21,7 @@ function fetchZipBrew() {
 
 function renderBrewToDropDown(brewery) {
   const brewOptions = document.createElement("option");
-  
+
   brewOptions.textContent = brewery.name;
   brewOptions.value = brewery.name;
   dropDown.append(brewOptions);
@@ -40,11 +40,7 @@ zipForm.addEventListener("submit", (e) => {
 function fetchRandomBrewery() {
   fetch("https://api.openbrewerydb.org/breweries/random")
     .then((response) => response.json())
-    .then((brewries) => {
-      brewries.forEach((brewery) => {
-        renderBreweryDetails(brewery);
-      });
-    });
+    .then(console.log);
 }
 
 randomBtn.addEventListener("click", () => {
@@ -52,21 +48,21 @@ randomBtn.addEventListener("click", () => {
   details.replaceChildren();
 });
 
-const renderBreweryDetails = (brewery) => {
+function renderBreweryDetails(brewery) {
   const cardDetails = document.createElement("div");
-  const breweryName = document.createElement("h1");
-  const breweryStreet = document.createElement("h2");
-  const breweryCity = document.createElement("h3");
-  const breweryState = document.createElement("h4");
-  const breweryZipCode = document.createElement("h5");
-  const breweryWebsite = document.createElement("h6");
+  const breweryName = document.createElement("h2");
+  const breweryStreet = document.createElement("p");
+  const breweryCity = document.createElement("p");
+  const breweryState = document.createElement("p");
+  const breweryZipCode = document.createElement("p");
+  const breweryWebsite = document.createElement("a");
 
   breweryName.textContent = brewery.name;
   breweryStreet.textContet = brewery.street;
   breweryCity.textContent = brewery.city;
   breweryState.textContent = brewery.state;
   breweryZipCode.textContent = brewery.postal_code;
-  breweryWebsite.textContent = brewery.website_url;
+  breweryWebsite.href = brewery.website_url;
 
   cardDetails.append(
     breweryName,
@@ -78,3 +74,18 @@ const renderBreweryDetails = (brewery) => {
   );
   details.append(cardDetails);
 };
+
+
+dropDown.addEventListener('change', ()=> {
+
+  const dropValueSplit = dropDown.value.split(" ")
+  const dropValueWithDashes = dropValueSplit.join("_")
+  
+  fetch(`https://api.openbrewerydb.org/breweries?by_name=${dropValueWithDashes}&by_postal=${zipCode}&per_page=3`)
+    .then(response => response.json())
+    .then(brewery => {
+      details.replaceChildren()
+      renderBreweryDetails(brewery[0])
+    })
+
+})
