@@ -1,19 +1,16 @@
 {
-    "posts": [
+    "favorites": [
       {
         "id": 1,
-        "title": "json-server",
-        "author": "typicode"
-      }
-    ],
-    "comments": [
+        "name": "blabla"
+      },
       {
-        "id": 1,
-        "body": "some comment",
-        "postId": 1
+        "id": 2,
+        "name": "booboo"
+      },
+      {
+        "id": 3,
+        "name": "beer"
       }
-    ],
-    "profile": {
-      "name": "typicode"
-    }
+    ]
   }

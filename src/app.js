@@ -1,11 +1,12 @@
 const details = document.querySelector("#brewry-details");
 const randomBtn = document.querySelector("#random-brewery-button");
 const zipForm = document.querySelector("#form-by-zip");
-const dropDown = document.querySelector("#brew-drop-down");
-const faveDropDown = document.querySelector('#favorites-drop-menu')
+const dropDownZip = document.querySelector("#brew-drop-down");
+const faveDropDown = document.querySelector("#favorites-drop-menu");
+
+fetchFavorites();
 
 let zipCode = "";
-
 
 function fetchZipBrew() {
   fetch(
@@ -14,26 +15,26 @@ function fetchZipBrew() {
     .then((response) => response.json())
     .then((brewries) => {
       const emptyOption = document.createElement("option");
-      dropDown.append(emptyOption);
+      dropDownZip.append(emptyOption);
       brewries.forEach((brewery) => {
-        renderBrewToDropDown(brewery);
+        renderBrewToDropDownZip(brewery, dropDownZip);
       });
     });
 }
 
-function renderBrewToDropDown(brewery) {
+function renderBrewToDropDownZip(brewery, dropMenu) {
   const brewOptions = document.createElement("option");
 
   brewOptions.textContent = brewery.name;
   brewOptions.value = brewery.name;
-  dropDown.append(brewOptions);
+  dropMenu.append(brewOptions);
 }
 
 zipForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const zipInput = document.querySelector("#zip-code");
   zipCode = zipInput.value;
-  dropDown.replaceChildren();
+  dropDownZip.replaceChildren();
 
   fetchZipBrew();
   zipForm.reset();
@@ -86,11 +87,11 @@ function renderBreweryDetails(brewery) {
   likeButton.textContent = "Favorite!";
   likeButton.id = "favorite-btn";
 
+  likeButton.addEventListener("click", () => {
+    console.log(breweryName.textContent);
 
-  likeButton.addEventListener('click', () => {
-    console.log(breweryName.textContent)
-    
-  })
+    fetch();
+  });
 
   cardDetails.append(
     breweryName,
@@ -106,8 +107,8 @@ function renderBreweryDetails(brewery) {
   details.append(cardDetails);
 }
 
-dropDown.addEventListener("change", () => {
-  const dropValueSplit = dropDown.value.split(" ");
+dropDownZip.addEventListener("change", () => {
+  const dropValueSplit = dropDownZip.value.split(" ");
   const dropValueWithDashes = dropValueSplit.join("_");
 
   fetch(
@@ -120,4 +121,15 @@ dropDown.addEventListener("change", () => {
     });
 });
 
-
+function fetchFavorites() {
+  fetch("http://localhost:3000/favorites")
+    .then((response) => response.json())
+    .then((favoritesArray) => {
+      const emptyOption = document.createElement("option");
+      emptyOption.textContent = "";
+      faveDropDown.appendChild(emptyOption);
+      favoritesArray.forEach((favorite) => {
+        renderBrewToDropDownZip(favorite, faveDropDown);
+      });
+    });
+}
