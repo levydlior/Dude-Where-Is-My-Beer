@@ -1,32 +1,19 @@
 {
   "favorites": [
     {
-      "id": 1,
-      "name": "blabla"
+      "name": "Peoria Artisan Brewery",
+      "zip": "85382",
+      "id": 1
     },
     {
-      "id": 2,
-      "name": "booboo"
+      "name": "SanTan Brewing Co",
+      "zip": "85225-7862",
+      "id": 2
     },
     {
-      "id": 3,
-      "name": "beer"
-    },
-    {
-      "name": "Departed Soles Brewing",
-      "id": 4
-    },
-    {
-      "name": "Brooks Brewing",
-      "id": 5
-    },
-    {
-      "name": "Flying Bison Brewing Co",
-      "id": 6
-    },
-    {
-      "name": "Mitten Brewing Co - Northport",
-      "id": 7
+      "name": "Great Divide Brewing Co",
+      "zip": "80205-2512",
+      "id": 3
     }
   ]
 }

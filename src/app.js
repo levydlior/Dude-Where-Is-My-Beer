@@ -87,19 +87,7 @@ function renderBreweryDetails(brewery) {
   likeButton.textContent = "Favorite!";
   likeButton.id = "favorite-btn";
 
-  likeButton.addEventListener("click", () => {
-    fetch("http://localhost:3000/favorites", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({
-        name: breweryName.textContent,
-      }),
-    })
-      .then((response) => response.json())
-      .then(favorite => renderBrewToDropDownZip(favorite, faveDropDown));
-  });
+  likeBtnEventListener(likeButton, brewery, breweryName);
 
   cardDetails.append(
     breweryName,
@@ -139,5 +127,40 @@ function fetchFavorites() {
       favoritesArray.forEach((favorite) => {
         renderBrewToDropDownZip(favorite, faveDropDown);
       });
+    });
+}
+
+faveDropDown.addEventListener("change", () => {
+  fetchSpesificBewByName();
+});
+
+function likeBtnEventListener(likeButton, brewery, breweryName) {
+  likeButton.addEventListener("click", () => {
+    fetch("http://localhost:3000/favorites", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        name: breweryName.textContent,
+        zip: brewery.postal_code,
+      }),
+    })
+      .then((response) => response.json())
+      .then((favorite) => renderBrewToDropDownZip(favorite, faveDropDown));
+  });
+}
+
+function fetchSpesificBewByName() {
+  const dropValueSplit = faveDropDown.value.split(" ");
+  const dropValueWithDashes = dropValueSplit.join("_");
+
+  fetch(
+    `https://api.openbrewerydb.org/breweries?by_name=${dropValueWithDashes}&per_page=3`
+  )
+    .then((response) => response.json())
+    .then((brewery) => {
+      details.replaceChildren();
+      renderBreweryDetails(brewery[0]);
     });
 }
