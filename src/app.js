@@ -88,9 +88,17 @@ function renderBreweryDetails(brewery) {
   likeButton.id = "favorite-btn";
 
   likeButton.addEventListener("click", () => {
-    console.log(breweryName.textContent);
-
-    fetch();
+    fetch("http://localhost:3000/favorites", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        name: breweryName.textContent,
+      }),
+    })
+      .then((response) => response.json())
+      .then(favorite => renderBrewToDropDownZip(favorite, faveDropDown));
   });
 
   cardDetails.append(

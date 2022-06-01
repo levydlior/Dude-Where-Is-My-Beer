@@ -1,16 +1,32 @@
 {
-    "favorites": [
-      {
-        "id": 1,
-        "name": "blabla"
-      },
-      {
-        "id": 2,
-        "name": "booboo"
-      },
-      {
-        "id": 3,
-        "name": "beer"
-      }
-    ]
-  }
+  "favorites": [
+    {
+      "id": 1,
+      "name": "blabla"
+    },
+    {
+      "id": 2,
+      "name": "booboo"
+    },
+    {
+      "id": 3,
+      "name": "beer"
+    },
+    {
+      "name": "Departed Soles Brewing",
+      "id": 4
+    },
+    {
+      "name": "Brooks Brewing",
+      "id": 5
+    },
+    {
+      "name": "Flying Bison Brewing Co",
+      "id": 6
+    },
+    {
+      "name": "Mitten Brewing Co - Northport",
+      "id": 7
+    }
+  ]
+}
