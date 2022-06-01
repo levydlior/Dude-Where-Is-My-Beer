@@ -6,14 +6,14 @@
 }
 
 header {
-  background-color: rgb(248,248,255);
+  background-color: rgb(246, 172, 61);
   box-shadow: 1px 2px #535353;
 }
 
 body {
   padding: 0;
   margin: 0;
-  background-color: rgb(223, 141, 3);
+  background-color: rgb(255, 236, 202);
 }
 
 #brewery-names-nav {
