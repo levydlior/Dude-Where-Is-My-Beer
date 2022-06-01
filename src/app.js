@@ -93,6 +93,7 @@ if (!brewery.street) {
     breweryPhone
   );
   details.append(cardDetails);
+  console.log(details)
 }
 
 dropDown.addEventListener("change", () => {
