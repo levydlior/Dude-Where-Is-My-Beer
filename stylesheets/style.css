@@ -16,7 +16,7 @@ body {
 
 #brewery-names-nav {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     border: 1px;
     border-style: solid;
     padding: 0.5rem;
@@ -47,4 +47,22 @@ header {
   display: flex;
   justify-content: center;
   margin: 0.5rem;
+}
+
+#card-details-brew {
+    display: flex;
+}
+
+a {
+    width: 1px;
+    height: 1px;
+}
+
+p {
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
+main {
+    display: flex;
 }
