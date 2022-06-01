@@ -1,0 +1,19 @@
+{
+  "favorites": [
+    {
+      "name": "Peoria Artisan Brewery",
+      "zip": "85382",
+      "id": 1
+    },
+    {
+      "name": "SanTan Brewing Co",
+      "zip": "85225-7862",
+      "id": 2
+    },
+    {
+      "name": "Great Divide Brewing Co",
+      "zip": "80205-2512",
+      "id": 3
+    }
+  ]
+}

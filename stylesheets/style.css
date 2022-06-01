@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Tiro+Gurmukhi&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Tiro+Gurmukhi&display=swap");
 
 * {
   box-sizing: border-box;
-  font-family: 'Tiro Gurmukhi', serif;
+  font-family: "Tiro Gurmukhi", serif;
 }
 
 header {
+
   background-color: rgb(246, 172, 61);
   box-shadow: 1px 2px #535353;
 }
@@ -74,8 +75,6 @@ p {
 
 main {
   display: flex;
-  margin: 1rem;
-  padding: 1rem;
   justify-content: center;
   flex-flow: column;
 }
@@ -88,19 +87,30 @@ main {
 #random-brewery-button {
   display: flex;
   justify-content: center;
-  margin: 0.5rem
+  margin: 0.5rem;
 }
 
 #brewry-details {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
-#random-button-area-div{
-    display: flex;
-    justify-content: center;
+#random-button-area-div {
+  display: flex;
+  justify-content: center;
 }
 
-button {
-    box-shadow: 1px 2px #535353;
+button,
+input[type="submit"] {
+  box-shadow: 1px 2px #535353;
+}
+
+#favorite-btn {
+  width: 30%;
+}
+
+#favorite-section {
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem;
 }
