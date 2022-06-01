@@ -40,7 +40,7 @@ zipForm.addEventListener("submit", (e) => {
 function fetchRandomBrewery() {
   fetch("https://api.openbrewerydb.org/breweries/random")
     .then((response) => response.json())
-    .then(brewery => renderBreweryDetails(brewery[0]));
+    .then((brewery) => renderBreweryDetails(brewery[0]));
 }
 
 randomBtn.addEventListener("click", () => {
@@ -50,48 +50,59 @@ randomBtn.addEventListener("click", () => {
 
 function renderBreweryDetails(brewery) {
   const cardDetails = document.createElement("div");
-  cardDetails.id = "card-details-brew"
+  cardDetails.id = "card-details-brew";
   const breweryName = document.createElement("h2");
+  const breweryType = document.createElement("h3");
   const breweryStreet = document.createElement("p");
   const breweryCity = document.createElement("p");
   const breweryState = document.createElement("p");
   const breweryZipCode = document.createElement("p");
+  const breweryPhone = document.createElement("p");
   const breweryWebsite = document.createElement("a");
 
   breweryName.textContent = brewery.name;
-  breweryStreet.textContet = brewery.street;
-  breweryCity.textContent = brewery.city;
-  breweryState.textContent = brewery.state;
-  breweryZipCode.textContent = brewery.postal_code;
-  if(!brewery.website_url){
-    breweryWebsite.style.display = 'none'
-  }else{
-    breweryWebsite.href = brewery.website_url;
-    breweryWebsite.target = "_blank"
-  breweryWebsite.textContent = "Brewery Website"
+  breweryType.textContent = "Brewery Type: " + brewery.brewery_type;
+
+  if (brewery.street) {
+    breweryStreet.textContet = "Street: " + brewery.street;
+  } else {
+    breweryStreet.textContet = "Street: Unknown";
   }
+  breweryCity.textContent = "City: " + brewery.city;
+  breweryState.textContent = "State: " + brewery.state;
+  breweryZipCode.textContent = "Zip: " + brewery.postal_code;
+  breweryPhone.textContent = "Phone Number: " + brewery.phone;
+  if (!brewery.website_url) {
+    breweryWebsite.style.display = "none";
+  } else {
+    breweryWebsite.href = brewery.website_url;
+    breweryWebsite.target = "_blank";
+    breweryWebsite.textContent = "Brewery Website";
+  }
+
   cardDetails.append(
     breweryName,
+    breweryType,
     breweryStreet,
     breweryCity,
     breweryState,
     breweryZipCode,
-    breweryWebsite
+    breweryWebsite,
+    breweryPhone
   );
   details.append(cardDetails);
-};
+}
 
+dropDown.addEventListener("change", () => {
+  const dropValueSplit = dropDown.value.split(" ");
+  const dropValueWithDashes = dropValueSplit.join("_");
 
-dropDown.addEventListener('change', ()=> {
-
-  const dropValueSplit = dropDown.value.split(" ")
-  const dropValueWithDashes = dropValueSplit.join("_")
-  
-  fetch(`https://api.openbrewerydb.org/breweries?by_name=${dropValueWithDashes}&by_postal=${zipCode}&per_page=3`)
-    .then(response => response.json())
-    .then(brewery => {
-      details.replaceChildren()
-      renderBreweryDetails(brewery[0])
-    })
-
-})
+  fetch(
+    `https://api.openbrewerydb.org/breweries?by_name=${dropValueWithDashes}&by_postal=${zipCode}&per_page=3`
+  )
+    .then((response) => response.json())
+    .then((brewery) => {
+      details.replaceChildren();
+      renderBreweryDetails(brewery[0]);
+    });
+});

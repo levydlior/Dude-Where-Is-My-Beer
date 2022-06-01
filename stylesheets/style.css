@@ -51,12 +51,17 @@ header {
 
 #card-details-brew {
     display: flex;
+    flex-wrap: wrap;
+    flex-flow: column;
 }
 
 a {
     width: 1px;
     height: 1px;
+    margin: 0.5rem;
+    padding: 0.5rem;
 }
+
 
 p {
     margin: 0.5rem;
@@ -65,4 +70,7 @@ p {
 
 main {
     display: flex;
+    margin: 1rem;
+    padding: 1rem;
+    justify-content: center;
 }
