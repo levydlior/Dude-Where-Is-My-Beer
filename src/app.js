@@ -3,6 +3,7 @@ const randomBtn = document.querySelector("#random-brewery-button");
 const zipForm = document.querySelector("#form-by-zip");
 const dropDownZip = document.querySelector("#brew-drop-down");
 const faveDropDown = document.querySelector("#favorites-drop-menu");
+const removeBtn = document.querySelector("#remove-button");
 
 let zipCode = "";
 
@@ -25,6 +26,7 @@ function renderBrewToDropDownZip(brewery, dropMenu) {
 
   brewOptions.textContent = brewery.name;
   brewOptions.value = brewery.name;
+  brewOptions.id = brewery.id
   dropMenu.append(brewOptions);
 }
 
@@ -48,7 +50,6 @@ function fetchRandomBrewery() {
 }
 
 randomBtn.addEventListener("click", () => {
-  console.log('not refreshed')
   fetchRandomBrewery();
   
 });
@@ -109,6 +110,7 @@ function fetchFavorites() {
   fetch("http://localhost:3000/favorites")
     .then((response) => response.json())
     .then((favoritesArray) => {
+      faveDropDown.replaceChildren()
       const emptyOption = document.createElement("option");
       emptyOption.textContent = "";
       faveDropDown.appendChild(emptyOption);
@@ -133,6 +135,7 @@ function likeBtnEventListener(likeButton, brewery, breweryName) {
       body: JSON.stringify({
         name: brewery.name,
         zip: brewery.postal_code,
+        id: brewery.id
       }),
     })
       .then((response) => response.json())
@@ -167,3 +170,19 @@ dropDownZip.addEventListener("change", () => {
     });
 });
 
+
+removeBtn.addEventListener('click', () => {
+  
+  if (faveDropDown.value){
+const favoriteValueId = faveDropDown.options[faveDropDown.selectedIndex].id
+    fetch(`http://localhost:3000/favorites/${favoriteValueId}`, {
+      method: 'DELETE'
+    }).then(response => response.json())
+      .then(newObject => {
+        const cardDetailsSpot = document.querySelector('#card-details-brew')
+        cardDetailsSpot.remove()
+        fetchFavorites()
+      })
+
+  }
+})

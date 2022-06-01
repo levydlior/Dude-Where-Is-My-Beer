@@ -1,59 +1,14 @@
 {
   "favorites": [
     {
-      "name": "Ethereal Brewing",
-      "zip": "40504-1129",
-      "id": 1
-    },
-    {
-      "name": "Ethereal Brewing",
-      "zip": "40504-1129",
-      "id": 2
-    },
-    {
-      "name": "The Referend Bier Blendery",
-      "zip": "08534-5007",
-      "id": 3
-    },
-    {
-      "name": "Black Shirt Brewing Co",
-      "zip": "80205-2436",
-      "id": 4
-    },
-    {
       "name": "The Sandlot Brewery At Coors Field",
       "zip": "80205-2010",
-      "id": 5
+      "id": "the-sandlot-brewery-at-coors-field-denver"
     },
     {
-      "name": "Dock Street Brewing Co",
-      "zip": "19146",
-      "id": 6
-    },
-    {
-      "name": "Ethereal Brewing",
-      "zip": "40504-1129",
-      "id": 7
-    },
-    {
-      "name": "Epic Brewing Co., LLC",
-      "zip": "80205-2324",
-      "id": 8
-    },
-    {
-      "name": "Lone Peak Brewery",
-      "zip": "59716",
-      "id": 9
-    },
-    {
-      "name": "Woods Boss Brewing Company",
-      "zip": "80205-2824",
-      "id": 10
-    },
-    {
-      "name": "Ratio Beerworks",
-      "zip": "80205-2309",
-      "id": 11
+      "name": "Bierstadt Lagerhaus",
+      "zip": "80205-2210",
+      "id": "bierstadt-lagerhaus-denver"
     }
   ]
 }
