@@ -13,7 +13,7 @@ header {
 body {
   padding: 0;
   margin: 0;
-  background-color: orange;
+  background-color: rgb(223, 141, 3);
 }
 
 #brewery-names-nav {

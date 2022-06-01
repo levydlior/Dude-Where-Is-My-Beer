@@ -38,7 +38,7 @@ zipForm.addEventListener("submit", (e) => {
 });
 
 function fetchRandomBrewery() {
-  fetch("https://api.openbrewerydb.org/breweries/random", {cache: "no-store"})
+  fetch("https://api.openbrewerydb.org/breweries/random", {cache: 'no-store'})
     .then((response) => response.json())
     .then((brewery) => renderBreweryDetails(brewery[0]));
 }
