@@ -54,7 +54,7 @@ randomBtn.addEventListener("click", () => {
 function renderBreweryDetails(brewery) {
   const cardDetails = document.createElement("div");
   cardDetails.id = "card-details-brew";
-  const breweryName = document.createElement("h2");
+  const breweryName = document.createElement("a");
   const breweryType = document.createElement("h3");
   const breweryStreet = document.createElement("p");
   const breweryCity = document.createElement("p");
@@ -64,30 +64,32 @@ function renderBreweryDetails(brewery) {
   const breweryWebsite = document.createElement("a");
   const likeButton = document.createElement("button");
 
-  breweryName.textContent = brewery.name;
+
+  if (!brewery.website_url) {
+    breweryName.innerHTML = `<h2> ${brewery.name}</h2>`
+  } else {
+  breweryName.href = brewery.website_url
+  breweryName.innerHTML = `<h2> ${brewery.name}</h2>`
+  breweryName.target = "_blank"
+  }
+
   breweryType.textContent = "Brewery Type: " + brewery.brewery_type;
 
   if (!brewery.street) {
     breweryStreet.textContent = "Street: Unknown";
   } else {
     breweryStreet.textContent = "Street: " + brewery.street;
-  }
 
   breweryCity.textContent = "City: " + brewery.city;
   breweryState.textContent = "State: " + brewery.state;
   breweryZipCode.textContent = "Zip: " + brewery.postal_code;
   breweryPhone.textContent = "Phone Number: " + brewery.phone;
-  if (!brewery.website_url) {
-    breweryWebsite.style.display = "none";
-  } else {
-    breweryWebsite.href = brewery.website_url;
-    breweryWebsite.target = "_blank";
-    breweryWebsite.textContent = "Brewery Website";
-  }
+
   likeButton.textContent = "Favorite!";
   likeButton.id = "favorite-btn";
 
   likeBtnEventListener(likeButton, brewery, breweryName);
+
 
   cardDetails.append(
     breweryName,
@@ -96,9 +98,10 @@ function renderBreweryDetails(brewery) {
     breweryCity,
     breweryState,
     breweryZipCode,
-    breweryWebsite,
     breweryPhone,
     likeButton
+ 
+
   );
   details.append(cardDetails);
 }
