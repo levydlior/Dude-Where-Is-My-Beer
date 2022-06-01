@@ -1,50 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./stylesheets/style.css" />
 
     <script defer src="./src/app.js"></script>
     <title>Dude Where's My Beer</title>
-</head>
+    <link rel="icon" type="image/x-icon" href="./download.png" />
+  </head>
 
-<body>
+  <body>
     <header>
-        <h1>Dude Where's My Beer?!</h1>
+      <h1>Dude Where's My Beer?!</h1>
     </header>
 
     <div id="nav-location">
-        <nav id="brewery-names-nav">
-            <form id="form-by-zip">
-                <input id="zip-code" type="text" required placeholder="Search Brewery By Zip">
-                <input type="submit" value="Search">
-            </form>
-            <label for="brewries">Choose a brewery:</label>
-            <select name="brewery" id="brew-drop-down"></select>
-        </nav>
+      <nav id="brewery-names-nav">
+        <form id="form-by-zip">
+          <input
+            id="zip-code"
+            type="text"
+            required
+            placeholder="Search Brewery By Zip"
+          />
+          <input type="submit" value="Search" />
+        </form>
+        <label for="brewries">Choose a brewery:</label>
+        <select name="brewery" id="brew-drop-down"></select>
+      </nav>
     </div>
     <main>
-        <div id="brewry-details">
-        </div>
-        <div id="random-button-area-div">
-            <button type= 'button' id="random-brewery-button">Generate Random Brewery</button>
-        </div>
-        <div id="brewry-details">
-        </div>
-        
+      <div id="brewry-details"></div>
+      <div id="random-button-area-div">
+        <button type="button" id="random-brewery-button">
+          Generate Random Brewery
+        </button>
+      </div>
+      <div id="brewry-details"></div>
 
-        <section id="favorite-section">
-            <label for="favoriteBrews" id="fave-text-label">Your Favorites: </label>
-            <select name="favorites" id="favorites-drop-menu"> </select>
-
-        </section>
-
-
-
+      <section id="favorite-section">
+        <label for="favoriteBrews" id="fave-text-label">Your Favorites: </label>
+        <select name="favorites" id="favorites-drop-menu"></select>
+      </section>
     </main>
-</body>
-
+  </body>
 </html>

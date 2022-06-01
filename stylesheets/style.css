@@ -119,3 +119,7 @@ input[type="submit"] {
 #fave-text-label {
     margin: 0.5rem;
 }
+
+#favorites-drop-menu{
+    margin-right: 4rem;
+}
