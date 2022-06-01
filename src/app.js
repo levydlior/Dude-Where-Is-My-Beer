@@ -79,6 +79,7 @@ function renderBreweryDetails(brewery) {
     breweryStreet.textContent = "Street: Unknown";
   } else {
     breweryStreet.textContent = "Street: " + brewery.street;
+}
 
   breweryCity.textContent = "City: " + brewery.city;
   breweryState.textContent = "State: " + brewery.state;
@@ -159,11 +160,11 @@ function fetchSpesificBewByName() {
   const dropValueWithDashes = dropValueSplit.join("_");
 
   fetch(
-    `https://api.openbrewerydb.org/breweries?by_name=${dropValueWithDashes}&per_page=3`
-  )
+    `https://api.openbrewerydb.org/breweries?by_name=${dropValueWithDashes}&per_page=3`)
     .then((response) => response.json())
     .then((brewery) => {
       details.replaceChildren();
       renderBreweryDetails(brewery[0]);
     });
 }
+
