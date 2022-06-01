@@ -44,6 +44,11 @@
       "name": "Lone Peak Brewery",
       "zip": "59716",
       "id": 9
+    },
+    {
+      "name": "Woods Boss Brewing Company",
+      "zip": "80205-2824",
+      "id": 10
     }
   ]
 }
