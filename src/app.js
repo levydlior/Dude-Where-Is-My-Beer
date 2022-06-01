@@ -1,9 +1,11 @@
 const details = document.querySelector("#brewry-details");
 const randomBtn = document.querySelector("#random-brewery-button");
-
-let zipCode = "";
 const zipForm = document.querySelector("#form-by-zip");
 const dropDown = document.querySelector("#brew-drop-down");
+const faveDropDown = document.querySelector('#favorites-drop-menu')
+
+let zipCode = "";
+
 
 function fetchZipBrew() {
   fetch(
@@ -38,7 +40,7 @@ zipForm.addEventListener("submit", (e) => {
 });
 
 function fetchRandomBrewery() {
-  fetch("https://api.openbrewerydb.org/breweries/random", {cache: 'no-store'})
+  fetch("https://api.openbrewerydb.org/breweries/random", { cache: "no-store" })
     .then((response) => response.json())
     .then((brewery) => renderBreweryDetails(brewery[0]));
 }
@@ -59,16 +61,16 @@ function renderBreweryDetails(brewery) {
   const breweryZipCode = document.createElement("p");
   const breweryPhone = document.createElement("p");
   const breweryWebsite = document.createElement("a");
+  const likeButton = document.createElement("button");
 
   breweryName.textContent = brewery.name;
   breweryType.textContent = "Brewery Type: " + brewery.brewery_type;
 
-if (!brewery.street) {
+  if (!brewery.street) {
     breweryStreet.textContent = "Street: Unknown";
-    } else {
+  } else {
     breweryStreet.textContent = "Street: " + brewery.street;
-}
-
+  }
 
   breweryCity.textContent = "City: " + brewery.city;
   breweryState.textContent = "State: " + brewery.state;
@@ -81,6 +83,14 @@ if (!brewery.street) {
     breweryWebsite.target = "_blank";
     breweryWebsite.textContent = "Brewery Website";
   }
+  likeButton.textContent = "Favorite!";
+  likeButton.id = "favorite-btn";
+
+
+  likeButton.addEventListener('click', () => {
+    console.log(breweryName.textContent)
+    
+  })
 
   cardDetails.append(
     breweryName,
@@ -90,7 +100,8 @@ if (!brewery.street) {
     breweryState,
     breweryZipCode,
     breweryWebsite,
-    breweryPhone
+    breweryPhone,
+    likeButton
   );
   details.append(cardDetails);
 }
@@ -108,3 +119,5 @@ dropDown.addEventListener("change", () => {
       renderBreweryDetails(brewery[0]);
     });
 });
+
+
