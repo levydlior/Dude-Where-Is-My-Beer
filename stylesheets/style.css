@@ -1,46 +1,45 @@
 * {
-    box-sizing: border-box;
-    
+  box-sizing: border-box;
 }
 
 header {
-    background-color: rgba(197, 194, 194, 0.735);
-    box-shadow: 1px 2px #535353;
+  background-color: rgba(197, 194, 194, 0.735);
+  box-shadow: 1px 2px #535353;
 }
 
 body {
-    padding: 0;
-    margin: 0;
-    background-color: orange
+  padding: 0;
+  margin: 0;
+  background-color: orange;
 }
 
 #brewery-names-nav {
-    display: flex;
-    justify-content: space-evenly;
-    border: 1px;
-    border-style: solid;
-    padding: 0.5rem;
-    width: 46rem;
+  display: flex;
+  justify-content: space-evenly;
+  border: 1px;
+  border-style: solid;
+  padding: 0.5rem;
+  width: 46rem;
 }
 
 ul {
-    display: flex;
-    justify-content: space-evenly;
-    list-style: none;
-    width: 30rem;
-    padding: 0.5rem;
-    margin: 0.5rem;
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  width: 30rem;
+  padding: 0.5rem;
+  margin: 0.5rem;
 }
 
 li {
-    padding: 5px;
-    margin: 5px;
-    border-style: solid;
+  padding: 5px;
+  margin: 5px;
+  border-style: solid;
 }
 
 header {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 #nav-location {
@@ -50,41 +49,49 @@ header {
 }
 
 #card-details-brew {
-    display: flex;
-    flex-wrap: wrap;
-    flex-flow: column;
-    border-style: groove;
-    box-shadow: 3px 5px #423f3f;
-    padding: 1rem;
-    
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: column;
+  border-style: groove;
+  box-shadow: 3px 5px #423f3f;
+  padding: 1rem;
+  width: 26rem;
 }
 
 a {
-    width: 1px;
-    height: 1px;
-    margin: 0.5rem;
-    padding: 0.5rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
 }
 
-
 p {
-    margin: 0.5rem;
-    padding: 0.5rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
 }
 
 main {
-    display: flex;
-    margin: 1rem;
-    padding: 1rem;
-    justify-content: center;
-}
-
-#random-brewery-button{
-    justify-content: center;
-    display: flex;
+  display: flex;
+  margin: 1rem;
+  padding: 1rem;
+  justify-content: center;
+  flex-flow: column;
 }
 
 #random-brewery-button {
-   display: flex;
-   justify-content: center; 
+  justify-content: center;
+  display: flex;
+}
+
+#random-brewery-button {
+  display: flex;
+  justify-content: center;
+}
+
+#brewry-details {
+    display: flex;
+    justify-content: center;
+}
+
+#random-button-area-div{
+    display: flex;
+    justify-content: center;
 }
