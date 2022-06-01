@@ -60,7 +60,7 @@ h1 {
 body {
   padding: 0;
   margin: 0;
-  background-color: rgb(255, 236, 202);
+  background: linear-gradient(0.25turn, #fdeca0, #ebf8e1, #ebb748);
 }
 
 #brewery-names-nav {
@@ -107,6 +107,11 @@ header {
   box-shadow: 3px 5px #535353;
   padding: 1rem;
   width: 26rem;
+}
+
+h3 {
+  margin: 0.5rem;
+  padding: 0.5rem
 }
 
 a {
