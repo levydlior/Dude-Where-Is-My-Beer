@@ -29,6 +29,16 @@
       "name": "Dock Street Brewing Co",
       "zip": "19146",
       "id": 6
+    },
+    {
+      "name": "Ethereal Brewing",
+      "zip": "40504-1129",
+      "id": 7
+    },
+    {
+      "name": "Epic Brewing Co., LLC",
+      "zip": "80205-2324",
+      "id": 8
     }
   ]
 }
