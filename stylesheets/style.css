@@ -3,14 +3,9 @@
 * {
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
+  border-radius: 4px;
 }
 
-header {
-
-  background-color: rgb(246, 172, 61);
-  box-shadow: 1px 2px #535353;
-  
-}
 .bg-image-full {
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -71,6 +66,8 @@ body {
   padding: 0.5rem;
   width: 46rem;
   box-shadow: 1px 2px #535353;
+  border-radius: 5px;
+
 }
 
 ul {
@@ -96,7 +93,8 @@ header {
 #nav-location {
   display: flex;
   justify-content: center;
-  margin: 0.5rem;
+  margin: 1rem;
+  border-radius: 2px;
 }
 
 #card-details-brew {
@@ -107,6 +105,7 @@ header {
   box-shadow: 3px 5px #535353;
   padding: 1rem;
   width: 26rem;
+  border-radius: 10px;
 }
 
 h3 {

@@ -83,10 +83,20 @@ function renderBreweryDetails(brewery) {
 
   }
 
+  function formatPhoneNumber(phoneNumberString) {
+    var cleaned = ('' + phoneNumberString).replace(/\D/g, '');
+    var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+    if (match) {
+      return '(' + match[1] + ') ' + match[2] + '-' + match[3];
+    }
+    return null;
+  }
+
   breweryCity.textContent = "City: " + brewery.city;
   breweryState.textContent = "State: " + brewery.state;
   breweryZipCode.textContent = "Zip: " + brewery.postal_code;
-  breweryPhone.textContent = "Phone Number: " + brewery.phone;
+  breweryPhone.textContent = "Phone Number: " + formatPhoneNumber(brewery.phone);
+
 
   likeButton.textContent = "Favorite!";
   likeButton.id = "favorite-btn";
