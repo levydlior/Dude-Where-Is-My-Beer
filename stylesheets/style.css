@@ -61,6 +61,7 @@ header {
 a {
   margin: 0.5rem;
   padding: 0.5rem;
+  width: 8rem;
 }
 
 p {
@@ -84,6 +85,7 @@ main {
 #random-brewery-button {
   display: flex;
   justify-content: center;
+  margin: 0.5rem
 }
 
 #brewry-details {

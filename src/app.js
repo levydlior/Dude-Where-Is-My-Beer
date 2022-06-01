@@ -66,7 +66,7 @@ function renderBreweryDetails(brewery) {
 if (!brewery.street) {
     breweryStreet.textContent = "Street: Unknown";
     } else {
-    breweryStreet.textContent = "Street:" + brewery.street;
+    breweryStreet.textContent = "Street: " + brewery.street;
 }
 
 
