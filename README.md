@@ -30,3 +30,12 @@ To run the project, simply clone it into your computer. Open it in your browser 
 If you don't have json installed on your device: [How to install json server](https://www.npmjs.com/package/json-server)
 
 ![dude where's my beer web](./dudeW.jpg "Dude where's my beer?!")
+
+
+
+Creators
+---
+
+Shane Dorsey [Gitlink](https://github.com/scdorsey22), [Linkdin](https://www.linkedin.com/in/shanedorsey/)
+
+Lior Levy [Gitlink](https://github.com/levydlior), [Linkdin](https://www.linkedin.com/in/liordl/)
