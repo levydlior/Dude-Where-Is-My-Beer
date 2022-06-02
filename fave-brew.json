@@ -6,14 +6,14 @@
       "id": "chophouse-and-brewery-denver-denver"
     },
     {
-      "name": "Twisted Pine Brewing Co",
-      "zip": "80301-2645",
-      "id": "twisted-pine-brewing-co-boulder"
-    },
-    {
       "name": "Equilibrium Brewery",
       "zip": "10940",
       "id": "equilibrium-brewery-middletown"
+    },
+    {
+      "name": "Big Bear Brewing Co",
+      "zip": "33071-6031",
+      "id": "big-bear-brewing-co-coral-springs"
     }
   ]
 }
