@@ -184,7 +184,7 @@ removeBtn.addEventListener("click", () => {
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((newObject) => {
+      .then(() => {
         const cardDetailsSpot = document.querySelector("#card-details-brew");
         cardDetailsSpot.remove();
         fetchFavorites();

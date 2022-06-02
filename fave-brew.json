@@ -1,34 +1,3 @@
 {
-  "favorites": [
-    {
-      "name": "ChopHouse and Brewery - Denver",
-      "zip": "80202-6002",
-      "id": "chophouse-and-brewery-denver-denver"
-    },
-    {
-      "name": "Equilibrium Brewery",
-      "zip": "10940",
-      "id": "equilibrium-brewery-middletown"
-    },
-    {
-      "name": "Big Bear Brewing Co",
-      "zip": "33071-6031",
-      "id": "big-bear-brewing-co-coral-springs"
-    },
-    {
-      "name": "Spangalang Brewery",
-      "zip": "80205-2900",
-      "id": "spangalang-brewery-denver"
-    },
-    {
-      "name": "Black Shirt Brewing Co",
-      "zip": "80205-2436",
-      "id": "black-shirt-brewing-co-denver"
-    },
-    {
-      "name": "River North Brewery - RiNo",
-      "zip": "80205-2440",
-      "id": "river-north-brewery-rino-denver"
-    }
-  ]
+  "favorites": []
 }
