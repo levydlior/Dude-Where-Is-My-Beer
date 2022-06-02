@@ -1,14 +1,14 @@
 {
   "favorites": [
     {
-      "name": "The Sandlot Brewery At Coors Field",
-      "zip": "80205-2010",
-      "id": "the-sandlot-brewery-at-coors-field-denver"
+      "name": "ChopHouse and Brewery - Denver",
+      "zip": "80202-6002",
+      "id": "chophouse-and-brewery-denver-denver"
     },
     {
-      "name": "Bierstadt Lagerhaus",
-      "zip": "80205-2210",
-      "id": "bierstadt-lagerhaus-denver"
+      "name": "Twisted Pine Brewing Co",
+      "zip": "80301-2645",
+      "id": "twisted-pine-brewing-co-boulder"
     }
   ]
 }

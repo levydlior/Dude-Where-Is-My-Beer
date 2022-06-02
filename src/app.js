@@ -26,7 +26,7 @@ function renderBrewToDropDownZip(brewery, dropMenu) {
 
   brewOptions.textContent = brewery.name;
   brewOptions.value = brewery.name;
-  brewOptions.id = brewery.id
+  brewOptions.id = brewery.id;
   dropMenu.append(brewOptions);
 }
 
@@ -45,13 +45,12 @@ function fetchRandomBrewery() {
     .then((response) => response.json())
     .then((brewery) => {
       details.replaceChildren();
-      renderBreweryDetails(brewery[0])
+      renderBreweryDetails(brewery[0]);
     });
 }
 
 randomBtn.addEventListener("click", () => {
   fetchRandomBrewery();
-  
 });
 
 function renderBreweryDetails(brewery) {
@@ -80,14 +79,13 @@ function renderBreweryDetails(brewery) {
     breweryStreet.textContent = "Street: Unknown";
   } else {
     breweryStreet.textContent = "Street: " + brewery.street;
-
   }
 
   function formatPhoneNumber(phoneNumberString) {
-    var cleaned = ('' + phoneNumberString).replace(/\D/g, '');
+    var cleaned = ("" + phoneNumberString).replace(/\D/g, "");
     var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
     if (match) {
-      return '(' + match[1] + ') ' + match[2] + '-' + match[3];
+      return "(" + match[1] + ") " + match[2] + "-" + match[3];
     }
     return null;
   }
@@ -95,8 +93,8 @@ function renderBreweryDetails(brewery) {
   breweryCity.textContent = "City: " + brewery.city;
   breweryState.textContent = "State: " + brewery.state;
   breweryZipCode.textContent = "Zip: " + brewery.postal_code;
-  breweryPhone.textContent = "Phone Number: " + formatPhoneNumber(brewery.phone);
-
+  breweryPhone.textContent =
+    "Phone Number: " + formatPhoneNumber(brewery.phone);
 
   likeButton.textContent = "Favorite!";
   likeButton.id = "favorite-btn";
@@ -120,7 +118,7 @@ function fetchFavorites() {
   fetch("http://localhost:3000/favorites")
     .then((response) => response.json())
     .then((favoritesArray) => {
-      faveDropDown.replaceChildren()
+      faveDropDown.replaceChildren();
       const emptyOption = document.createElement("option");
       emptyOption.textContent = "";
       faveDropDown.appendChild(emptyOption);
@@ -145,7 +143,7 @@ function likeBtnEventListener(likeButton, brewery, breweryName) {
       body: JSON.stringify({
         name: brewery.name,
         zip: brewery.postal_code,
-        id: brewery.id
+        id: brewery.id,
       }),
     })
       .then((response) => response.json())
@@ -158,7 +156,8 @@ function fetchSpesificBewByName() {
   const dropValueWithDashes = dropValueSplit.join("_");
 
   fetch(
-    `https://api.openbrewerydb.org/breweries?by_name=${dropValueWithDashes}&per_page=3`)
+    `https://api.openbrewerydb.org/breweries?by_name=${dropValueWithDashes}&per_page=3`
+  )
     .then((response) => response.json())
     .then((brewery) => {
       details.replaceChildren();
@@ -180,19 +179,17 @@ dropDownZip.addEventListener("change", () => {
     });
 });
 
-
-removeBtn.addEventListener('click', () => {
-  
-  if (faveDropDown.value){
-const favoriteValueId = faveDropDown.options[faveDropDown.selectedIndex].id
+removeBtn.addEventListener("click", () => {
+  if (faveDropDown.value) {
+    const favoriteValueId = faveDropDown.options[faveDropDown.selectedIndex].id;
     fetch(`http://localhost:3000/favorites/${favoriteValueId}`, {
-      method: 'DELETE'
-    }).then(response => response.json())
-      .then(newObject => {
-        const cardDetailsSpot = document.querySelector('#card-details-brew')
-        cardDetailsSpot.remove()
-        fetchFavorites()
-      })
-
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then((newObject) => {
+        const cardDetailsSpot = document.querySelector("#card-details-brew");
+        cardDetailsSpot.remove();
+        fetchFavorites();
+      });
   }
-})
+});
