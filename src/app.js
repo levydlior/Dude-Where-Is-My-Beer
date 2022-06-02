@@ -75,15 +75,13 @@ function renderBreweryDetails(brewery) {
 
   breweryType.textContent = "Brewery Type: " + brewery.brewery_type;
 
-  if (!brewery.street) {
-    breweryStreet.textContent = "Street: Unknown";
-  } else {
-    breweryStreet.textContent = "Street: " + brewery.street;
-  }
+  !brewery.street
+    ? (breweryStreet.textContent = "Street: Unknown")
+    : (breweryStreet.textContent = "Street: " + brewery.street);
 
   function formatPhoneNumber(phoneNumberString) {
-    var cleaned = ("" + phoneNumberString).replace(/\D/g, "");
-    var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+    let cleaned = ("" + phoneNumberString).replace(/\D/g, "");
+    let match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
     if (match) {
       return "(" + match[1] + ") " + match[2] + "-" + match[3];
     }
@@ -133,7 +131,7 @@ faveDropDown.addEventListener("change", () => {
   fetchSpesificBewByName();
 });
 
-function likeBtnEventListener(likeButton, brewery, breweryName) {
+function likeBtnEventListener(likeButton, brewery) {
   likeButton.addEventListener("click", () => {
     fetch("http://localhost:3000/favorites", {
       method: "POST",
