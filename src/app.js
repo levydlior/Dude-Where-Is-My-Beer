@@ -1,17 +1,22 @@
+//getting elemnts from the html to js/dom
 const details = document.querySelector("#brewry-details");
 const randomBtn = document.querySelector("#random-brewery-button");
 const zipForm = document.querySelector("#form-by-zip");
 const dropDownZip = document.querySelector("#brew-drop-down");
 const faveDropDown = document.querySelector("#favorites-drop-menu");
 const removeBtn = document.querySelector("#remove-button");
+
+//converting brew name into a fetable one
 const converetedValue = (spesificDropDown) => {
   const dropValueSplit = spesificDropDown.value.split(" ");
   const dropValueWithDashes = dropValueSplit.join("_");
   return dropValueWithDashes;
 };
 
+//path for the zip fetch
 let zipCode = "";
 
+//fetching brews to the zip dropdown
 function fetchZipBrew() {
   fetch(
     `https://api.openbrewerydb.org/breweries?by_postal=${zipCode}&per_page=25`
@@ -26,6 +31,7 @@ function fetchZipBrew() {
     });
 }
 
+//creates option element and populates them with the brewery names
 function renderBrewToDropDownZip(brewery, dropMenu) {
   const brewOptions = document.createElement("option");
 
@@ -35,6 +41,7 @@ function renderBrewToDropDownZip(brewery, dropMenu) {
   dropMenu.append(brewOptions);
 }
 
+//search input for zip
 zipForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const zipInput = document.querySelector("#zip-code");
@@ -58,6 +65,7 @@ randomBtn.addEventListener("click", () => {
   fetchRandomBrewery();
 });
 
+//creating elemnts, assging values and appending them to details section
 function renderBreweryDetails(brewery) {
   const cardDetails = document.createElement("div");
   cardDetails.id = "card-details-brew";
@@ -84,10 +92,13 @@ function renderBreweryDetails(brewery) {
     ? (breweryStreet.textContent = "Street: Unknown")
     : (breweryStreet.textContent = "Street: " + brewery.street);
 
+  //function regex for phone formating a string into a presentable phone number
   function formatPhoneNumber(phoneNumberString) {
     let cleaned = ("" + phoneNumberString).replace(/\D/g, "");
     let match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
-    return match ? "(" + match[1] + ") " + match[2] + "-" + match[3] : "Unkown";
+    return match 
+      ? "(" + match[1] + ") " + match[2] + "-" + match[3] 
+      : "Unkown";
   }
 
   breweryCity.textContent = "City: " + brewery.city;
@@ -164,6 +175,7 @@ function fetchSpesificBewByName() {
     });
 }
 
+//event listener for the drop down change- another fetch request to popualte the details section
 dropDownZip.addEventListener("change", () => {
   fetch(
     `https://api.openbrewerydb.org/breweries?by_name=${converetedValue(
