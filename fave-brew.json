@@ -1,3 +1,9 @@
 {
-  "favorites": []
+  "favorites": [
+    {
+      "name": "Bierstadt Lagerhaus",
+      "zip": "80205-2210",
+      "id": "bierstadt-lagerhaus-denver"
+    }
+  ]
 }
