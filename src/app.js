@@ -96,9 +96,7 @@ function renderBreweryDetails(brewery) {
   function formatPhoneNumber(phoneNumberString) {
     let cleaned = ("" + phoneNumberString).replace(/\D/g, "");
     let match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
-    return match 
-      ? "(" + match[1] + ") " + match[2] + "-" + match[3] 
-      : "Unkown";
+    return match ? "(" + match[1] + ") " + match[2] + "-" + match[3] : "Unkown";
   }
 
   breweryCity.textContent = "City: " + brewery.city;
@@ -141,7 +139,10 @@ function fetchFavorites() {
 fetchFavorites();
 
 faveDropDown.addEventListener("change", () => {
-  fetchSpesificBewByName();
+  const favoriteUrl = `https://api.openbrewerydb.org/breweries?by_name=${converetedValue(
+    faveDropDown
+  )}&per_page=3`;
+  fetchSpesificBewByName(favoriteUrl);
 });
 
 function likeBtnEventListener(likeButton, brewery) {
@@ -162,12 +163,8 @@ function likeBtnEventListener(likeButton, brewery) {
   });
 }
 
-function fetchSpesificBewByName() {
-  fetch(
-    `https://api.openbrewerydb.org/breweries?by_name=${converetedValue(
-      faveDropDown
-    )}&per_page=3`
-  )
+function fetchSpesificBewByName(urlPath) {
+  fetch(urlPath)
     .then((response) => response.json())
     .then((brewery) => {
       details.replaceChildren();
@@ -177,16 +174,10 @@ function fetchSpesificBewByName() {
 
 //event listener for the drop down change- another fetch request to popualte the details section
 dropDownZip.addEventListener("change", () => {
-  fetch(
-    `https://api.openbrewerydb.org/breweries?by_name=${converetedValue(
-      dropDownZip
-    )}&by_postal=${zipCode}&per_page=3`
-  )
-    .then((response) => response.json())
-    .then((brewery) => {
-      details.replaceChildren();
-      renderBreweryDetails(brewery[0]);
-    });
+  const breweryNameAndZipPath = `https://api.openbrewerydb.org/breweries?by_name=${converetedValue(
+    dropDownZip
+  )}&by_postal=${zipCode}&per_page=3`;
+  fetchSpesificBewByName(breweryNameAndZipPath);
 });
 
 removeBtn.addEventListener("click", () => {
