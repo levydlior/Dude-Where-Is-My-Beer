@@ -10,11 +10,9 @@ The assignment was:
    Our event listeners are: 1. Searching for breweries by zip code. 2. A details section that shows the details of a brewery based on the brewery that was selected in a dropdown menu. 3. A generate random brewery button that shows the details of a random brewery 4. A favorite button that adds the brewery that was liked to the json server and then presents it on a dropdown menu 5. Similar to 2-- just with a favorite dropdown 6. A remove button to remove favorite brewery from the favorite dropdown and the json server.
 
 **The Application**
-
 As specified in the event listeners, this web app allows you to look-up breweries by their zip code. You can then see the details of the brewery and you can mark your favorite brewery (as well as delete unwanted favorite breweries).
 
 **Technologies used:**
-
 For this project we used Javascript, HTML, CSS and JSON as the local server.
 
 **Challenges:**
@@ -31,7 +29,7 @@ To run the project, simply clone it into your computer. Open it in your browser 
 
 If you don't have json installed on your device: [How to install json server](https://www.npmjs.com/package/json-server)
 
-![dude where's my beer web](./dudeW.jpg "Dude where's my beer?!")
+![dude where's my beer web](./dudeW.png "Dude where's my beer?!")
 
 
 
