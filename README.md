@@ -28,6 +28,7 @@ For this project we used Javascript, HTML, CSS and JSON as the local server.
 To run the project, simply clone it into your computer. Open it in your browser and in your local terminal run: `json-server --watch fave-brew.json`
 
 If you don't have json installed on your device: [How to install json server](https://www.npmjs.com/package/json-server)
+-- Note that without a local json server the favorite function won't work
 
 ![dude where's my beer web](./DudeW.png "Dude where's my beer?!")
 
