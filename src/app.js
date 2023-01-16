@@ -1,14 +1,14 @@
 //getting elemnts from the html to js/dom
-const details = document.querySelector("#brewry-details");
+const details = document.querySelector("#brewery-details");
 const randomBtn = document.querySelector("#random-brewery-button");
 const zipForm = document.querySelector("#form-by-zip");
 const dropDownZip = document.querySelector("#brew-drop-down");
 const faveDropDown = document.querySelector("#favorites-drop-menu");
 const removeBtn = document.querySelector("#remove-button");
 
-//converting brew name into a fetable one
-const converetedValue = (spesificDropDown) => {
-  const dropValueSplit = spesificDropDown.value.split(" ");
+//converting brew name into a fetchable one
+const convertedValue = (specificDropDown) => {
+  const dropValueSplit = specificDropDown.value.split(" ");
   const dropValueWithDashes = dropValueSplit.join("_");
   return dropValueWithDashes;
 };
@@ -22,10 +22,10 @@ function fetchZipBrew() {
     `https://api.openbrewerydb.org/breweries?by_postal=${zipCode}&per_page=25`
   )
     .then((response) => response.json())
-    .then((brewries) => {
+    .then((breweries) => {
       const emptyOption = document.createElement("option");
       dropDownZip.append(emptyOption);
-      brewries.forEach((brewery) => {
+      breweries.forEach((brewery) => {
         renderBrewToDropDownZip(brewery, dropDownZip);
       });
     });
@@ -57,7 +57,7 @@ function fetchRandomBrewery() {
     "https://api.openbrewerydb.org/breweries/random",
     { cache: "no-store" },
   ];
-  fetchSpesificBewByName(randomURL);
+  fetchSpecificBewByName(randomURL);
 }
 
 randomBtn.addEventListener("click", () => {
@@ -139,11 +139,11 @@ fetchFavorites();
 
 faveDropDown.addEventListener("change", () => {
   const favoriteUrl = [
-    `https://api.openbrewerydb.org/breweries?by_name=${converetedValue(
+    `https://api.openbrewerydb.org/breweries?by_name=${convertedValue(
       faveDropDown
     )}&per_page=3`,
   ];
-  fetchSpesificBewByName(favoriteUrl);
+  fetchSpecificBewByName(favoriteUrl);
 });
 
 function likeBtnEventListener(likeButton, brewery) {
@@ -164,7 +164,7 @@ function likeBtnEventListener(likeButton, brewery) {
   });
 }
 
-function fetchSpesificBewByName(urlPath) {
+function fetchSpecificBewByName(urlPath) {
   fetch(...urlPath)
     .then((response) => response.json())
     .then((brewery) => {
@@ -176,11 +176,11 @@ function fetchSpesificBewByName(urlPath) {
 //event listener for the drop down change- another fetch request to popualte the details section
 dropDownZip.addEventListener("change", () => {
   const breweryNameAndZipPath = [
-    `https://api.openbrewerydb.org/breweries?by_name=${converetedValue(
+    `https://api.openbrewerydb.org/breweries?by_name=${convertedValue(
       dropDownZip
     )}&by_postal=${zipCode}&per_page=3`,
   ];
-  fetchSpesificBewByName(breweryNameAndZipPath);
+  fetchSpecificBewByName(breweryNameAndZipPath);
 });
 
 removeBtn.addEventListener("click", () => {

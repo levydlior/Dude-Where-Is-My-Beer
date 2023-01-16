@@ -7,10 +7,8 @@
 }
 
 .bg-image-full {
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center;
-  background-size: cover;
+  background-color: black;
+  height: 400px;
 }
 .py-5 {
   padding-top: 2rem;
@@ -25,18 +23,9 @@ h1 {
   text-align: center;
 }
 
-.my-5 {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
 .rounded-circle {
   border-radius: 50%;
 }
-
-/* .mb-4{
-  margin-bottom: 0.5rem;
-} */
 
 .img-fluid {
   max-width: 100%;
@@ -48,23 +37,20 @@ h1 {
 }
 
 .mb-0 {
-  color: white;
+  color: black;
 }
 
 body {
   padding: 0;
   margin: 0;
-  background: linear-gradient(0.25turn, #fdeca0, #ebf8e1, #ebb748);
 }
 
 #brewery-names-nav {
   display: flex;
   justify-content: space-evenly;
-  border: 1px;
-  border-style: solid;
+  align-items: center;
   padding: 0.5rem;
-  width: 46rem;
-  box-shadow: 1px 2px #535353;
+  column-gap: 25px;
   border-radius: 5px;
 }
 
@@ -80,7 +66,6 @@ ul {
 li {
   padding: 5px;
   margin: 5px;
-  border-style: solid;
 }
 
 header {
@@ -90,9 +75,11 @@ header {
 
 #nav-location {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin: 1rem;
-  border-radius: 2px;
+  row-gap: 20px;
 }
 
 #card-details-brew {
@@ -125,21 +112,20 @@ p {
 main {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-flow: column;
+  color: black;
+  margin: 25px 0px;
 }
 
 #random-brewery-button {
   justify-content: center;
   display: flex;
-}
-
-#random-brewery-button {
-  display: flex;
-  justify-content: center;
   margin: 0.5rem;
+  width: 50%;
 }
 
-#brewry-details {
+#brewery-details {
   display: flex;
   justify-content: center;
 }
@@ -151,7 +137,18 @@ main {
 
 button,
 input[type="submit"] {
-  box-shadow: 1px 2px #535353;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  border: 1px solid;
+  padding: 10px;
+}
+
+#zip-code {
+  border: 1px solid;
+  padding: 10px;
+}
+
+#brew-drop-down {
+  padding: 10px;
 }
 
 #favorite-btn {
@@ -161,7 +158,6 @@ input[type="submit"] {
 #favorite-section {
   display: flex;
   justify-content: center;
-  margin: 0.5rem;
 }
 
 #fave-text-label {
@@ -170,4 +166,11 @@ input[type="submit"] {
 
 #favorites-drop-menu {
   margin-right: 4rem;
+}
+
+.solid-line-break {
+  margin: 30px 0px;
+  align-self: center;
+  border-top: 1px solid;
+  width: 80%;
 }

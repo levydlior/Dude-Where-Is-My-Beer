@@ -12,12 +12,7 @@
   </head>
 
   <body>
-    <header
-      class="py-5 bg-image-full"
-      style="
-        background-image: url('https://cdn11.bigcommerce.com/s-bblv2jbnka/product_images/uploaded_images/tr-dude-car.jpg');
-      "
-    >
+    <header class="py-5 bg-image-full">
       <div class="text-center my-5">
         <img
           class="img-fluid rounded-circle mb-4"
@@ -25,37 +20,38 @@
           alt="..."
         />
         <h1 class="text-white fs-3 fw-bolder">Dude, Where's My Beer?</h1>
-        <p class="text-white-50 mb-0">Find A Brewery</p>
       </div>
     </header>
-
-    <div id="nav-location">
-      <nav id="brewery-names-nav">
-        <form id="form-by-zip">
-          <input
-            id="zip-code"
-            type="text"
-            required
-            placeholder="Search Brewery By Zip"
-          />
-          <input type="submit" value="Search" />
-        </form>
-        <label for="brewries">Choose a brewery:</label>
-        <select name="brewery" id="brew-drop-down"></select>
-      </nav>
-    </div>
     <main>
-      <div id="brewry-details"></div>
-      <div id="random-button-area-div">
+      <h2>Find A Brewery</h2>
+      <div id="nav-location">
+        <nav id="brewery-names-nav">
+          <form id="form-by-zip">
+            <input
+              id="zip-code"
+              type="text"
+              required
+              placeholder="Search Brewery By Zip"
+            />
+            <input type="submit" value="Search" />
+          </form>
+          &rarr;
+          <label for="brewries">Choose a brewery:</label>
+          <select name="brewery" id="brew-drop-down">
+            <option value="" disabled selected>First search by zip</option>
+          </select>
+        </nav>
+        OR
         <button type="button" id="random-brewery-button">
           Generate Random Brewery
         </button>
       </div>
-
+      <div id="brewery-details"></div>
+      <hr class="solid-line-break" />
       <section id="favorite-section">
         <label for="favoriteBrews" id="fave-text-label">Your Favorites: </label>
         <select name="favorites" id="favorites-drop-menu"></select>
-        <button id="remove-button">Remove!</button>
+        <button id="remove-button">Remove</button>
       </section>
     </main>
   </body>
